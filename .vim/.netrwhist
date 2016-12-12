@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/boot/EFI/refind'
+let g:netrw_dirhist_2='/boot/EFI/refind/keys'
+let g:netrw_dirhist_3='/boot/EFI/refind'
+let g:netrw_dirhist_4='/home/killmaster/Documents/IA/scripts'
