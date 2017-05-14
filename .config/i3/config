@@ -11,7 +11,7 @@
 
 ### THEME ###
 
-set $FOCUS #989898
+set $FOCUS #579aed
 set $UNFOCUS #3c3b37
 
 # Layout colors 	    bord 	bg 		text    indicator (split)
@@ -21,6 +21,14 @@ client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
 client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
 client.background 		$UNFOCUS
 
+new_window pixel 4
+new_float pixel 4
+
+### Gaps ###
+set $default_gaps_inner 12
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 
 set $mod Mod4
 
@@ -209,6 +217,8 @@ bindsym $mod+r mode "resize"
 #}
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id xrandr --output eDP1 --auto --right-of HDMI1
+exec --no-startup-id nitrogen --restore
 # cycle workspaces
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+q workspace next
