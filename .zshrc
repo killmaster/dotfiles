@@ -9,8 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="classyTouch"
-#ZSH_THEME="rgm"
-
+#ZSH_THEME="spaceship"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -53,7 +52,7 @@ ZSH_THEME="classyTouch"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git tmux zsh-autosuggestions docker archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,10 +88,13 @@ export PATH="/home/killmaster/bin:$PATH"
 #export VDPAU_DRIVER=va_gl
 #export LIBVA_DRIVER_NAME=vdpau
 alias vim="nvim"
-
+alias lock="~/.config/i3/lock.sh"
 
 PATH="/home/killmaster/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/killmaster/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/killmaster/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/killmaster/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/killmaster/perl5"; export PERL_MM_OPT;
+
+export PATH=$HOME/flutter/bin:$PATH
+export ANDROID_HOME="/opt/android-sdk"

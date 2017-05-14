@@ -31,6 +31,8 @@ Plugin 'jpalardy/vim-slime'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'dart-lang/dart-vim-plugin'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,6 +53,8 @@ syntax on
 set background=dark
 set laststatus=2
 set t_Co=256
+set encoding=utf-8
+
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -64,4 +68,6 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slim_paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "2"}
 
-
+vnoremap <C-c> "+y
+vnoremap <C-v> "+p
+set clipboard=unnamed
