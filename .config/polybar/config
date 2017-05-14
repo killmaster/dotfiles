@@ -1,0 +1,276 @@
+[colors]
+background = #060108
+background-alt = #060108
+foreground = #DDDDDD
+foreground-alt = #548587
+fg-1 = #ffaf5f
+fg-2 = #ffd494
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+monitor = ${env:MONITOR}
+width = 100%
+height = 15
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = ${colors.primary}
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = PragmataPro:pixelsize=10:antialias=false;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10:antialias=false;1
+font-3 = Unifont Upper:fontformat=truetype:size8:antialias=false;0
+font-4 = artwiz cure:pixelsize=10:antialias=false;1
+font-5 = FontAwesome:pixelsize=10:antialias=false;1
+
+modules-left = i3
+modules-right = keyboard battery wired-network wireless-network volume date
+
+tray-position = right
+tray-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+fuzzy-match = false
+pin-workspaces = true
+
+ws-icon-0 = 1:term;
+ws-icon-1 = 2:code;
+ws-icon-2 = 3:www;
+ws-icon-3 = 4:ssh;
+ws-icon-4 = 5:chat;
+ws-icon-5 = 6;
+ws-icon-6 = 
+ws-icon-7 = 7; 
+ws-icon-8 = 
+ws-icon-9 = 10:game;
+
+ws-icon-default = 
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %{T3}%index% %icon%
+label-focused-background = ${colors.primary}
+label-focused-foreground = #000000
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %{T3}%index% %icon%
+label-unfocused-background = ${colors.background}
+label-unfocused-underline = ${colors.background}
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %{T3}%index% %icon%
+label-visible-background = #ffffff
+label-visible-foreground = #000000
+label-visible-underline = #ffffff
+label-visible-padding = 1
+
+; urgent = Workspace with urgency hint set
+label-urgent = %{T3}%index% %icon%
+label-urgent-underline = ${colors.alert}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+label-layout =  %layout%
+label-layout-padding = 2
+label-layout-background = ${colors.background}
+label-layout-foreground = ${colors.foreground}
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding = 2
+label-indicator-background = #8139e8
+
+[module/wired-network]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected =  %local_ip%
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-alt = <label-connected-alt>
+format-connected-underline = ${colors.primary}
+label-connected =  %essid:0:3:% %signal%%
+label-connected-alt =  %essid% %signal%% %local_ip%
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.alert}
+label-disconnected =  Disconnected
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "%d/%m (%a)"
+
+time = 🕓 %H:%M
+time-alt = 🕓 %H:%M:%S
+
+;format-prefix = ɸ
+format-prefix-foreground = #6e1335
+;format-underline = #87875f
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted = 🔇 muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+#format-volume = <label-volume> <bar-volume>
+#label-volume = "🔊"
+#label-volume-foreground = #90233f
+#
+#format-muted-foreground = #90233f
+#label-muted = "🔇"
+#
+#bar-volume-width = 10
+#bar-volume-foreground-0 = #6E1336
+#bar-volume-foreground-1 = #6E1336
+#bar-volume-foreground-2 = #902341
+#bar-volume-foreground-3 = #A32149
+#bar-volume-foreground-4 = #D93259
+#bar-volume-foreground-5 = #ED5463
+#bar-volume-foreground-6 = #ED5463
+#bar-volume-gradient = true
+#bar-volume-indicator = 
+#bar-volume-indicator-font = 2
+#bar-volume-fill = •
+#bar-volume-fill-font = 2
+#bar-volume-empty = ·
+#bar-volume-empty-font = 2
+#bar-volume-empty-foreground = #666666
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-full = 
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
